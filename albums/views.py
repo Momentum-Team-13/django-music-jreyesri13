@@ -1,57 +1,48 @@
 from django.shortcuts import render, redirect, get_object_or_404
-# from .models import Contact, Note
-# from .forms import ContactForm, NoteForm
+from .models import Album
+from .forms import AlbumForm
 
 
 # Create your views here.
-
-"""
-def list_contacts(request):
-    contacts = Contact.objects.all()
-    return render(request, "contacts/list_contacts.html",
-                  {"contacts": contacts})
+def list_albums(request):
+    albums = Album.objects.all()
+    return render(request, "albums/list_albums.html", {"albums": albums})
 
 
-def add_contact(request):
+def add_album(request):
     if request.method == 'GET':
-        form = ContactForm()
+        form = AlbumForm()
     else:
-        form = ContactForm(data=request.POST)
+        form = AlbumForm(data=request.POST)
         if form.is_valid():
             form.save()
-            return redirect(to='list_contacts')
+            return redirect(to='list_albums')
 
-    return render(request, "contacts/add_contact.html", {"form": form})
-
-
-def edit_contact(request, pk):
-    contact = get_object_or_404(Contact, pk=pk)
-    if request.method == 'GET':
-        form = ContactForm(instance=contact)
-    else:
-        form = ContactForm(data=request.POST, instance=contact)
-        if form.is_valid():
-            form.save()
-            return redirect(to='list_contacts')
-
-    return render(request, "contacts/edit_contact.html", {
-        "form": form,
-        "contact": contact
-    })
+    return render(request, "albums/add_album.html", {"form": form})
 
 
-def delete_contact(request, pk):
-    contact = get_object_or_404(Contact, pk=pk)
+def delete_album(request, pk):
+    album = get_object_or_404(Album, pk=pk)
     if request.method == 'POST':
-        contact.delete()
-        return redirect(to='list_contacts')
+        album.delete()
+        return redirect(to='list_albums')
 
-    return render(request, "contacts/delete_contact.html",
-                  {"contact": contact})
+    return render(request, "albums/delete_album.html", {"album": album})
 
 
-def view_contact(request, pk):
-    contact = get_object_or_404(Contact, pk=pk)
-    notes = Note.objects.filter(contact=pk)
-    return render(request, "contacts/view_contact.html", {"contact": contact, "notes": notes})
-"""
+def edit_album(request, pk):
+    album = get_object_or_404(Album, pk=pk)
+    if request.method == 'GET':
+        form = AlbumForm(instance=album)
+    else:
+        form = AlbumForm(data=request.POST, instance=album)
+        if form.is_valid():
+            form.save()
+            return redirect(to='list_albums')
+
+    return render(request, "albums/edit_album.html", {"form": form, "album": album})
+
+
+def view_album(request, pk):
+    album = get_object_or_404(Album, pk=pk)
+    return render(request, "albums/view_album.html", {"album": album})
