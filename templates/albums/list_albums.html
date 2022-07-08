@@ -6,14 +6,14 @@
 
 <h1>All Albums</h1>
 
-<div>
+<div class="flex flex-wrap">
     {% for album in albums %}
-    <div>
+    <div class="w-33 pa3">
 
         <h2>{{ album.title }}</h2>
 
         {% if album.artist %}
-        <div>
+        <div class="flex">
             <div>{{ album.artist }}</div>
         </div>
         {% endif %}
