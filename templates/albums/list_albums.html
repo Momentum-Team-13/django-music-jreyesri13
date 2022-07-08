@@ -12,7 +12,11 @@
     <div id="tunesDiv">
         <!-- class="w-33 pa3" -->
 
+        {% if album.title %}
+
         <h2>{{ album.title }}</h2>
+
+        {% endif %}
 
         {% if album.artist %}
         <!-- <div class="flex"></div> -->

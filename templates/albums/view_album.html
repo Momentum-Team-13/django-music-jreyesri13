@@ -4,7 +4,12 @@
 
 <div id="tunes">
     <div id="tunesDiv">
+
+        {% if album.title %}
+
         <h2>{{ album.title }}</h2>
+
+        {% endif %}
 
         {% if album.artist %}
 
