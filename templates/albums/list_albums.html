@@ -2,9 +2,9 @@
 
 {% block content %}
 
-<p><strong><a href="{% url 'add_album' %}">Add New Album</a></strong></p>
+<p id="topContent"><strong><a href="{% url 'add_album' %}">Add New Album</a></strong></p>
 
-<h1>All Albums</h1>
+<h1 id="topContent">All Albums</h1>
 
 <div class="flex flex-wrap">
     {% for album in albums %}
