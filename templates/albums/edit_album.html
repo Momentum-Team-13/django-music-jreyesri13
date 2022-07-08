@@ -1,14 +1,17 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Edit Album</h1>
+<h1 id="topContent">Edit Album</h1>
 
-<div>
-  <form action="{% url 'edit_album' pk=album.pk %}" method="POST">
+<div class="flex flex-wrap justify-center">
+  <form action="{% url 'edit_album' pk=album.pk %}" method="POST" class="tc">
     {% csrf_token %}
     {{ form.as_p }}
     <div>
       <button type="submit">Update Album</button>
+      <br>
+      <br>
+      <a href="{% url 'view_album' pk=album.pk %}">Cancel</a>
     </div>
   </form>
 </div>
