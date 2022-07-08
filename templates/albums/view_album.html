@@ -2,23 +2,22 @@
 
 {% block content %}
 
-<div>
+<div id="tunes">
+    <div id="tunesDiv">
+        <h2>{{ album.title }}</h2>
 
-    <h2>{{ album.title }}</h2>
+        {% if album.artist %}
 
-    {% if album.artist %}
-    <div>
         <div>{{ album.artist }}</div>
+
+        {% endif %}
+
+        <p>
+            <a href="{% url 'edit_album' pk=album.pk %}">Edit Album</a>
+            <br>
+            <br>
+            <a href="{% url 'delete_album' pk=album.pk %}">Delete Album</a>
+        </p>
     </div>
-    {% endif %}
-
-
-    <p>
-        <a href="{% url 'edit_album' pk=album.pk %}">Edit Album</a>
-        <br>
-        <br>
-        <a href="{% url 'delete_album' pk=album.pk %}">Delete Album</a>
-    </p>
-
 </div>
 {% endblock %}
