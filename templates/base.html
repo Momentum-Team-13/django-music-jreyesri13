@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css" />
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-
+ 
 <body class="sans-serif pv3 ph2">
     <div class="mw9 center">
-        <h1 id="topContent">🎵 <a href="{% url 'list_albums' %}">Album Central</a> 🎵</h1>
+        <h1 class="tc">🎵 <a href="{% url 'list_albums' %}">Album Central</a> 🎵</h1>
         {% block content %}
         {% endblock %}
     </div>
