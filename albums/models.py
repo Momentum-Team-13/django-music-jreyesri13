@@ -4,8 +4,8 @@ from django.db import models
 
 
 class Album(models.Model):
-    title = models.CharField(max_length=255, null=True, blank=True)
-    artist = models.CharField(max_length=255, null=True, blank=True)
+    title = models.CharField(max_length=255, null=True, blank=False)
+    artist = models.CharField(max_length=255, null=True, blank=False)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
